@@ -319,6 +319,7 @@ export function startCuratorServer(
 		if (provider === "searchapi") return availableProviders.searchapi;
 		if (provider === "outcrawl") return availableProviders.outcrawl;
 		if (provider === "sofya") return availableProviders.sofya;
+		if (provider === "webz") return availableProviders.webz;
 		if (provider === "cloro") return availableProviders.cloro;
 		if (provider === "autom") return availableProviders.autom;
 		if (provider === "specstream") return availableProviders.specstream;

@@ -27,6 +27,7 @@ const providers = [
 		["extractWithOllama", "https://ollama.com/api/web_fetch"]],
 	["outcrawl", "outcrawl", "searchWithOutcrawl", "https://api.outcrawl.ai/v1/search", "Authorization"],
 	["sofya", "sofya", "searchWithSofya", "https://sofya.co/v1/search", "Authorization"],
+	["webz", "webz", "searchWithWebz", "https://api.webz.io/api/news/context", "Authorization"],
 	["perplexity", "perplexity", "searchWithPerplexity", "https://api.perplexity.ai/search", "Authorization",
 		["askPerplexity", "https://api.perplexity.ai/chat/completions"]],
 	["querit", "querit", "searchWithQuerit", "https://api.querit.ai/v1/search", "Authorization",
@@ -62,7 +63,7 @@ async function runFixture(t, provider, script, config = {}) {
 	const env = { ...process.env, HOME: home, USERPROFILE: home, PI_CODING_AGENT_DIR: home };
 	delete env.XDG_CONFIG_HOME;
 	for (const key of Object.keys(env)) {
-		if (/_BASE_URL$|_API_KEY$/.test(key)) delete env[key];
+		if (/_BASE_URL$|_API_KEY$|_API_TOKEN$/.test(key)) delete env[key];
 	}
 	const moduleUrl = new URL(`../${provider.file}.ts`, import.meta.url).href;
 	const child = spawnSync(process.execPath, ["--input-type=module"], {

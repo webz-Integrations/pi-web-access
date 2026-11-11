@@ -78,6 +78,7 @@ import { isCloudflareSearchAvailable } from "./cloudflare-search.ts";
 import { isSearchApiAvailable } from "./searchapi.ts";
 import { isOutcrawlAvailable } from "./outcrawl.ts";
 import { isSofyaAvailable } from "./sofya.ts";
+import { isWebzAvailable } from "./webz.ts";
 import { isCloroAvailable } from "./cloro.ts";
 import { isAutomAvailable } from "./autom.ts";
 import { isSpecStreamAvailable } from "./specstream.ts";
@@ -385,6 +386,7 @@ async function getProviderAvailability(ctx: ExtensionContext): Promise<ProviderA
 		searchapi: allowedProviders.has("searchapi") && isSearchApiAvailable(),
 		outcrawl: allowedProviders.has("outcrawl") && isOutcrawlAvailable(),
 		sofya: allowedProviders.has("sofya") && isSofyaAvailable(),
+		webz: allowedProviders.has("webz") && isWebzAvailable(),
 		cloro: allowedProviders.has("cloro") && isCloroAvailable(),
 		autom: allowedProviders.has("autom") && isAutomAvailable(),
 		specstream: allowedProviders.has("specstream") && isSpecStreamAvailable(),
